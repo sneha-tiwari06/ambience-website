@@ -1,6 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { axiosInstance, IMAGE_URL } from "../utils/axiosInstance";
+import LightGallery from 'lightgallery/react';
 
+import 'lightgallery/css/lightgallery.css';
+import 'lightgallery/css/lg-thumbnail.css';
+import 'lightgallery/css/lg-zoom.css';
+
+import lgThumbnail from 'lightgallery/plugins/thumbnail';
+import lgZoom from 'lightgallery/plugins/zoom';
 function Certifications() {
   const [certifications, setCertifications] = useState([]);
 
@@ -36,6 +43,7 @@ function Certifications() {
             <h3 className="mb-0">Certifications</h3>
           </div>
           <div className="certifications-wrapper">
+          <LightGallery plugins={[lgThumbnail, lgZoom]} selector=".certifications-box a" >
             <div className="row gap-row">
               {certifications.map(
                 (certification) =>
@@ -45,10 +53,11 @@ function Certifications() {
                       className="col-sm-4 certifications-box"
                     >
                       <a
-                        href={`${IMAGE_URL}/${certification.image}`}
+                        href={`${IMAGE_URL}/${certification.certificateImage}`}
                         className="inside"
-                        data-magnify="magnify"
+                        data-src={`${IMAGE_URL}/${certification.certificateImage}`}
                         data-caption={certification.altText}
+                        data-sub-html={certification.altText || "Testimonial"}
                       >
                         <div className="img-fluid">
                           <img
@@ -70,6 +79,7 @@ function Certifications() {
                   )
               )}
             </div>
+            </LightGallery>
           </div>
         </div>
       </div>

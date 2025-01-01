@@ -32,7 +32,7 @@ function LatestProjects() {
                     <div className="row gap-row">
                         {projects.map((project, index) => (
                             <div key={project._id} className="col-sm-4 projectBox">
-                                <a href="#" className="inside" data-count={index + 1}>
+                                <Link to='/gallery' className="inside" data-count={index + 1}>
                                     <div className="img-fluid">
                                     <img src={`${IMAGE_URL}/${project.imagePath}`} alt={project.altText} />
                                     </div>
@@ -40,7 +40,7 @@ function LatestProjects() {
                                         <span>{project.location}</span>
                                         <p className="mb-0">{project.projectName}</p>
                                     </div>
-                                </a>
+                                </Link>
                             </div>
                         ))}
                     </div>

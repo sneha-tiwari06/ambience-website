@@ -10,6 +10,7 @@ import { axiosInstance } from '../utils/axiosInstance';
 
 function Home() {
     const BASE_URL = "https://ambience.in/apis"; 
+    // const BASE_URL = "http://localhost:5000"; 
 
     const getFullImageUrl = (path) => `${BASE_URL}${path}`;
     const [banners, setBanner] = useState([]);

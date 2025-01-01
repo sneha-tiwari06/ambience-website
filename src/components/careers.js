@@ -9,6 +9,14 @@ function Careers() {
     location: ''
   });
 
+  const [formErrors, setFormErrors] = useState({});
+  const [formValues, setFormValues] = useState({
+    car_name: '',
+    car_email: '',
+    car_mobile: '',
+    car_location: '',
+    car_resume: null,
+  });
   const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
@@ -64,7 +72,7 @@ function Careers() {
   // API integration
   const [careers, setCareers] = useState([]);
   useEffect(() => {
-    axiosInstance.get('/careers')
+    axiosInstance.get('/careers/')
       .then(response => {
         setCareers(response.data);
       })
@@ -76,7 +84,87 @@ function Careers() {
   if (!careers.length) {
     return <div>Loading...</div>;
   }
+  const validateForm = () => {
+    const errors = {};
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const mobileRegex = /^[0-9]{10}$/;
 
+    if (!formValues.car_name.trim()) errors.car_name = 'Name is required.';
+    if (!formValues.car_email.trim() || !emailRegex.test(formValues.car_email))
+      errors.car_email = 'Valid email is required.';
+    if (!formValues.car_mobile.trim() || !mobileRegex.test(formValues.car_mobile))
+      errors.car_mobile = 'Valid 10-digit mobile number is required.';
+    if (!formValues.car_resume) errors.car_resume = 'Resume is required.';
+    else {
+      const allowedExtensions = ['pdf', 'doc', 'docx'];
+      const fileExtension = formValues.car_resume.name.split('.').pop().toLowerCase();
+      if (!allowedExtensions.includes(fileExtension)) {
+        errors.car_resume = 'Only PDF, DOC, or DOCX files are allowed.';
+      }
+    }
+
+    setFormErrors(errors);
+    return Object.keys(errors).length === 0;
+  };
+  const handleChange = (e) => {
+    const { name, value, files } = e.target;
+    setFormValues({
+      ...formValues,
+      [name]: files ? files[0] : value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+   if (!validateForm()) return;
+    const formData = new FormData(e.target);
+  
+    // Manually append the file
+    const fileInput = document.getElementById('car_resume');
+    if (fileInput && fileInput.files.length > 0) {
+      formData.append('car_resume', fileInput.files[0]);
+    }
+  
+    // Log the form data
+    console.log('Form Data:', formData);
+  
+    // If you want to log each individual entry
+    for (let [key, value] of formData.entries()) {
+      console.log(`${key}:`, value);
+    }
+  
+    try {
+      const response = await axiosInstance.post('/submit', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
+  
+      alert(response.data.message);
+  
+      // Close the modal using Bootstrap Modal instance
+      const modalElement = document.getElementById('careerModal');
+      const modalInstance = Modal.getInstance(modalElement);
+      modalInstance.hide(); // Close the modal
+  
+      // Reset the modal data and form fields
+      setModalData({ role: '', location: '' });
+     setFormValues({
+        car_name: '',
+        car_email: '',
+        car_mobile: '',
+        car_location: '',
+        car_resume: null,
+      });
+  
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      alert('Failed to submit the form.');
+    }
+  };
+  
+  
+  
   return (
     <>
       <div className="breadcrumbContainer">
@@ -175,7 +263,8 @@ function Careers() {
                   </button>
                 </div>
                 <div className="modal-body">
-                  <form>
+                <form method="POST" enctype="multipart/form-data" onSubmit={handleSubmit}>
+
                     <div className="row">
                       <div className="col-sm-6 form-group">
                         <label htmlFor="car_name">Name*</label>
@@ -184,7 +273,8 @@ function Careers() {
                           className="form-control"
                           id="car_name"
                           name="car_name"
-                        />
+                        />  
+                        {formErrors.car_name && <small className="text-danger">{formErrors.car_name}</small>}                                          
                       </div>
                       <div className="col-sm-6 form-group">
                         <label htmlFor="car_email">Email*</label>
@@ -194,6 +284,8 @@ function Careers() {
                           id="car_email"
                           name="car_email"
                         />
+                    {formErrors.car_email && <small className="text-danger">{formErrors.car_email}</small>}
+                  
                       </div>
                       <div className="col-sm-6 form-group">
                         <label htmlFor="car_mobile">Mobile*</label>
@@ -203,6 +295,8 @@ function Careers() {
                           id="car_mobile"
                           name="car_mobile"
                         />
+                           {formErrors.car_mobile && <small className="text-danger">{formErrors.car_mobile}</small>}
+                 
                       </div>
                       <div className="col-sm-6 form-group">
                         <label htmlFor="car_location">Location</label>
@@ -222,6 +316,8 @@ function Careers() {
                           className="form-control"
                           id="car_resume"
                         />
+                          {formErrors.car_resume && <small className="text-danger">{formErrors.car_resume}</small>}
+                  
                       </div>
                     </div>
                     <input type="hidden" name="car_role" id="car_role" value={modalData.role} />
