@@ -49,26 +49,48 @@ function Clients() {
             <div className="swiper-wrapper">
               {clients.map((client) => (
                 <div className="swiper-slide" key={client._id}>
-                  <a href="#" className="inside">
+                  <div className="inside">
                     <img
                       src={`${IMAGE_URL}/${client.image}`}
                       alt={client.altText}
                     />
-                  </a>
+                  </div>
                 </div>
               ))}
+              
+              {clients.map((client) => (
+                <div className="swiper-slide" key={client._id}>
+                  <div className="inside">
+                    <img
+                      src={`${IMAGE_URL}/${client.image}`}
+                      alt={client.altText}
+                    />
+                  </div>
+                </div>
+              ))}
+              
             </div>
           </div>
           <div dir="rtl" className="swiper project-logo-slider">
             <div className="swiper-wrapper">
               {clients.map((client) => (
                 <div className="swiper-slide" key={client._id}>
-                  <a href="#" className="inside">
+                  <div className="inside">
                     <img
                       src={`${IMAGE_URL}/${client.image}`}
                       alt={client.altText}
                     />
-                  </a>
+                  </div>
+                </div>
+              ))}
+              {clients.map((client) => (
+                <div className="swiper-slide" key={client._id}>
+                  <div className="inside">
+                    <img
+                      src={`${IMAGE_URL}/${client.image}`}
+                      alt={client.altText}
+                    />
+                  </div>
                 </div>
               ))}
             </div>

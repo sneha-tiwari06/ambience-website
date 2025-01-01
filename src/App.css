@@ -341,7 +341,9 @@ img {
   border: 0;
   border-radius: 0;
   background-color: #fff;
-  width: 40px;
+  border: 1px solid rgb(0 0 0 / 10%);
+  border-radius: 50%;
+  width: 40px; 
   height: 40px;
   overflow: hidden;
   display: flex;
@@ -362,11 +364,11 @@ img {
   position: relative;
   width: 100%;
   height: 2px;
-  background-color: var(--body-color);
+  background-color: var(--dark);
   transition: all 0.6s cubic-bezier(0.785, 0.135, 0.15, 0.86);
 }
 
-.menuBtn.closeMenuBtn span {
+.menuBtn.closeMenuBtn span{
   background-color: maroon;
 }
 
@@ -487,18 +489,7 @@ img {
   z-index: -1;
 }
 
-.banner .carousel-inner,
-.banner .carousel-inner .carousel-item,
-.banner .carousel-inner .carousel-item img {
-  position: relative;
-  height: 100%;
-}
-
-.banner .carousel-inner .carousel-item img {
-  object-fit: cover;
-}
-
-.banner .carousel-inner .carousel-item::before {
+.banner .swiper-slide::before {
   content: "";
   position: absolute;
   left: 0;

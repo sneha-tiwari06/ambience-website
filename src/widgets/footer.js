@@ -39,12 +39,8 @@ function Footer() {
                             <li><Link to='/careers'>Careers</Link></li>
                             <li><Link to='/contact-us'>Contact Us</Link></li>
                         </ul>
-                        <div className="socialBtn">
-                            <ul className="list-inline">
-                                <li><a href="#"><i className="fab fa-facebook-f"></i></a></li>
-                                <li><a href="#"><i className="fab fa-instagram"></i></a></li>
-                                <li><a href="#"><i className="fab fa-linkedin-in"></i></a></li>
-                            </ul>
+                        <div class="readmore w-auto mt-0">
+                            <Link to="/contact-us#enquiry" class="button">Enquire Now</Link>
                         </div>
                     </div>
                     <div className="foot-links">

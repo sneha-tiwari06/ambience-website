@@ -1,7 +1,6 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './components/home';
 import Header from './widgets/header';
-import './App.css';
 import Footer from './widgets/footer';
 import About from './components/about';
 import Projects from './components/projects';
@@ -11,6 +10,10 @@ import Careers from './components/careers';
 import ContactUs from './components/contact-us';
 import Certifications from './components/certifications';
 import GalleryDetails from './components/gallery-details';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import './App.css';
+import './responsive.css';
 function App() {
   return (
     <div className="App">

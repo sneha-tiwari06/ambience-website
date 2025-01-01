@@ -21,12 +21,12 @@ function Header() {
                             <li><Link to='/contact-us'>Contact Us</Link></li>
                         </ul>
                     </nav>
-                    <div className="top-header">
-                        <button className="menuBtn d-flex d-xl-none">
-                            <span id="menuLine1"></span>
-                            <span id="menuLine2"></span>
-                            <span id="menuLine3"></span>
-                        </button>
+                    <button className="menuBtn d-flex d-xl-none">
+                        <span id="menuLine1"></span>
+                        <span id="menuLine2"></span>
+                        <span id="menuLine3"></span>
+                    </button>
+                    {/* <div className="top-header">
                         <div className="socialBtn">
                             <i className="fa fa-share-alt"></i>
                             <ol className="list-inline">
@@ -35,7 +35,7 @@ function Header() {
                                 <li style={{ "--i": 6 }}><a href="#"><i className="fab fa-linkedin-in"></i></a></li>
                             </ol>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             </div>
 
