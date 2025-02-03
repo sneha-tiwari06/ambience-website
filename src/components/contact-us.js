@@ -1,7 +1,45 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { axiosInstance } from '../utils/axiosInstance';
 
 function ContactUs() {
+    const [formData, setFormData] = useState({
+        name: "",
+        email: "",
+        mobile: "",
+        message: "",
+      });
+    
+      const [status, setStatus] = useState("");
+    
+      const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData((prev) => ({
+          ...prev,
+          [name]: value,
+        }));
+      };
+    
+      const handleSubmit = async (e) => {
+        e.preventDefault();
+        setStatus("");
+      
+        try {
+          const response = await axiosInstance.post("/contact-us", formData);
+          alert("Form submitted successfully!"); // Show success alert
+          setStatus(response.data.message);
+          setFormData({
+            name: "",
+            email: "",
+            mobile: "",
+            message: "",
+          });
+        } catch (error) {
+          alert("Failed to submit the form."); // Show failure alert
+          setStatus(error.response?.data?.message || "Submission failed");
+        }
+      };
+      
     return (
         <>
             <div className="breadcrumbContainer">
@@ -60,13 +98,17 @@ function ContactUs() {
                         <h3 className="mb-0">Get In Touch</h3>
                     </div>
                     <div className="contactform">
-                        <form method="POST" id="contactus" enctype="multipart/form-data">
+                        <form id="contactus" onSubmit={handleSubmit} enctype="multipart/form-data">
                             <span className="status text-danger"></span>
                             <div className="row">
-                                <div className="col-sm-4 form-group"><input type="text" name="name" id="name" placeholder="Name*" className="form-control" /></div>
-                                <div className="col-sm-4 form-group"><input type="email" id="email" name="email" placeholder="Email*" className="form-control" /></div>
-                                <div className="col-sm-4 form-group"><input type="text" name="mobile" id="mobile" placeholder="Mobile*" className="form-control" /></div>
-                                <div className="col-sm-12 form-group"><textarea name="message" id="message" cols="30" rows="4" className="form-control" placeholder="Write your message"></textarea></div>
+                                <div className="col-sm-4 form-group"><input type="text" name="name" id="name" value={formData.name}
+            onChange={handleChange}placeholder="Name*" className="form-control" /></div>
+                                <div className="col-sm-4 form-group"><input type="email" id="email" name="email" value={formData.email}
+            onChange={handleChange} placeholder="Email*" className="form-control" /></div>
+                                <div className="col-sm-4 form-group"><input type="text" name="mobile" id="mobile" value={formData.mobile}
+            onChange={handleChange} placeholder="Mobile*" className="form-control" /></div>
+                                <div className="col-sm-12 form-group"><textarea name="message" id="message" value={formData.message}
+            onChange={handleChange} cols="30" rows="4" className="form-control" placeholder="Write your message"></textarea></div>
                             </div>
                             <div className="readmore">
                                 <input type="hidden" name="contactus" value="active" />

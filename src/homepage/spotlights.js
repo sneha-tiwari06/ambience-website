@@ -48,15 +48,9 @@ function Spotlight() {
         </article>
       </div>
       <div className="parallax-video-container">
-        <video
-          src={`${IMAGE_URL}${spotlightData.videoUrl}`}
+        <img
+          src={`${IMAGE_URL}/${spotlightData.imageUrl}`}
           className="w-100 h-100 object-cover"
-          autoPlay
-          muted
-          loop
-          preload="auto"
-          playsInline
-          poster="./images/generic-video-thumb.webp" 
         />
       </div>
     </div>
