@@ -60,8 +60,8 @@ function HomeTestimonials() {
                     <div className="swiper-wrapper">
                         {testimonials.map((testimonial) => (
                             testimonial.isActive && (
-                                <div className="swiper-slide testimBox">
-                                    <div key={testimonial._id} className="inside">
+                                <div key={testimonial._id} className="swiper-slide testimBox">
+                                    <div className="inside">
                                         <div className="img-fluid"> <img src={`${IMAGE_URL}/${testimonial.logo}`} alt={testimonial.logoAltText} />
                                         </div>
                                         <p dangerouslySetInnerHTML={{ __html: testimonial.content }}></p>

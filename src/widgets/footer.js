@@ -39,14 +39,14 @@ function Footer() {
                             <li><Link to='/careers'>Careers</Link></li>
                             <li><Link to='/contact-us'>Contact Us</Link></li>
                         </ul>
-                        <div class="readmore w-auto mt-0">
-                            <Link to="/contact-us#enquiry" class="button">Enquire Now</Link>
+                        <div className="readmore w-auto mt-0">
+                            <Link to="/contact-us#enquiry" className="button">Enquire Now</Link>
                         </div>
                     </div>
                     <div className="foot-links">
                         <div className="row gap-row">
                             <div className="col-md-4 col-sm-6 foot-menu">
-                                <h6>Useful Links</h6>
+                                <h6 className='footer-title'>Useful Links</h6>
                                 <ul className="list-inline">
                                     <li><Link to='/projects'>Our Work</Link></li>
                                     <li><Link to='/gallery'>Gallery</Link></li>
@@ -55,7 +55,7 @@ function Footer() {
                                 </ul>
                             </div>
                             <div className="col-md-4 col-sm-6 foot-address">
-                                <h6>Contact Us (NCR)</h6>
+                                <h6 className='footer-title'>Contact Us (NCR)</h6>
                                 <ul className="list-inline">
                                     <li><a href="https://maps.app.goo.gl/hLLcAC5gT8SNS6My8" target="_blank"><i className="fa fa-map-marker-alt"></i> <span>441-P, Pace City-II, Sector - 37, Gurgaon</span></a></li>
                                     <li><a href="tel:+91 124 4967777"><i className="fa fa-phone"></i> <span>+91 124 4967777</span></a></li>
@@ -64,7 +64,7 @@ function Footer() {
                                 <div className="readmore footer-map-btn"><a href="https://maps.app.goo.gl/hLLcAC5gT8SNS6My8" target="_blank" className="button">View On Google Map</a></div>
                             </div>
                             <div className="col-md-4 col-sm-6 foot-address">
-                                <h6>Contact Us (Bangalore)</h6>
+                                <h6 className='footer-title'>Contact Us (Bangalore)</h6>
                                 <ul className="list-inline">
                                     <li><a href="https://maps.app.goo.gl/apy7P7pbjqnn81DNA" target="_blank"><i className="fa fa-map-marker-alt"></i> <span>2nd Floor ,Times Square, No.319/C, 2nd Main, Kasturi Nagar (East of NGEF), Bangalore – 560043.</span></a></li>
                                     <li><a href="tel:+918042192947"><i className="fa fa-phone"></i> <span>+91 80 42192947</span></a></li>

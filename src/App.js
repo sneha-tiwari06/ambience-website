@@ -10,10 +10,7 @@ import Careers from './components/careers';
 import ContactUs from './components/contact-us';
 import Certifications from './components/certifications';
 import GalleryDetails from './components/gallery-details';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-import './App.css';
-import './responsive.css';
+
 function App() {
   return (
     <div className="App">

@@ -6,8 +6,8 @@ import { axiosInstance, IMAGE_URL } from "../utils/axiosInstance";
 function AwardsCertification() {
   useEffect(() => {
     new Swiper(".certifications-slider", {
-      slidesPerView: "3",
-      spaceBetween: 20,
+      slidesPerView: 1,
+      spaceBetween: 10,
       loop: true,
       navigation: {
         nextEl: ".swiper-button-next",
@@ -18,6 +18,16 @@ function AwardsCertification() {
         type: "fraction",
         clickable: true,
       },
+      breakpoints: {
+        576: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+        },
+        1024: {
+            slidesPerView: 3,
+            spaceBetween: 30,
+        },
+    },
     });
   }, []);
   const [certifications, setCertifications] = useState([]);
@@ -42,7 +52,7 @@ function AwardsCertification() {
               <span className="h6 text-brown">Ambience</span>
               <h3 className="mb-0">Certifications</h3>
             </div>
-            <div className="bottom-controls mr-0 justify-content-end">
+            <div className="bottom-controls me-0 justify-content-end">
               <div className="swiper-button-prev"></div>
               <div className="swiper-pagination"></div>
               <div className="swiper-button-next"></div>
@@ -53,8 +63,8 @@ function AwardsCertification() {
             {certifications.map(
               (certification) =>
                 certification.isActive && (
-                  <div className="swiper-slide certifications-box">
-                    <div key={certification._id} className="inside">
+                  <div key={certification._id} className="swiper-slide certifications-box">
+                    <div  className="inside">
                       <div className="img-fluid">
                         <img
                           src={`${IMAGE_URL}/${certification.image}`}

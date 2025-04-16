@@ -123,11 +123,11 @@ function Home() {
 
       <div className="w-100 py-3 hm-services-container bg-dark text-white text-center">
         <div className="container-lg">
-          <div className="row gap-row">
+          <div className="row gy-3">
             {pointers.map((pointer, index) => (
               <div
                 key={index}
-                className={`col-lg-3 hm-service-box ${
+                className={`col-lg-3 col-6 hm-service-box ${
                   index < pointers.length - 1 ? "border-end" : ""
                 }`}
               >
@@ -141,11 +141,11 @@ function Home() {
       </div>
       <LatestProjects />
       <div className="container-lg">
-        <hr class="my-0" />
+        <hr className="my-0" />
       </div>
       <Clients />
-      <div class="container-lg">
-        <hr class="my-0" />
+      <div className="container-lg">
+        <hr className="my-0" />
       </div>
       <div className="w-100 padding position-relative overflow-hidden overview-section">
         <div className="container-lg">
@@ -164,8 +164,8 @@ function Home() {
       <StatsSection />
       <Spotlight />
       <AwardsCertification />
-      <div class="container-lg">
-        <hr class="my-0" />
+      <div className="container-lg">
+        <hr className="my-0" />
       </div>
       <HomeTestimonials />
     </>
