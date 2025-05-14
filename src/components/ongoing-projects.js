@@ -11,7 +11,7 @@ function OngoingProjects() {
       .get("/projects")
       .then((response) => {
         const ongoingProjects = response.data.filter(
-          (project) => project.category === "ongoing"
+          (project) => project.category === "ongoing" && project.isActive === true
         );
         console.log(ongoingProjects);
         setProjects(ongoingProjects);
