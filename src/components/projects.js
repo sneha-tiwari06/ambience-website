@@ -2,6 +2,7 @@ import React from 'react'
 import OngoingProjects from './ongoing-projects'
 import CompletedProjects from './completed-projects'
 import { Link } from 'react-router-dom'
+import Footer from '../widgets/footer'
 
 function Projects() {
     return (
@@ -17,7 +18,7 @@ function Projects() {
             <OngoingProjects />
             <CompletedProjects />
 
-
+<Footer />
         </>
     )
 }

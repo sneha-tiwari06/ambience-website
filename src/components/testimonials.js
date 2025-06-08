@@ -9,6 +9,7 @@ import 'lightgallery/css/lg-zoom.css';
 
 import lgThumbnail from 'lightgallery/plugins/thumbnail';
 import lgZoom from 'lightgallery/plugins/zoom';
+import Footer from '../widgets/footer';
 function Testimonials() {
     const [testimonials, setTestimonials] = useState([]);
 
@@ -78,6 +79,7 @@ function Testimonials() {
                     </div>
                 </div>
             </div>
+            <Footer />
         </>
     )
 }

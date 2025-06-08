@@ -637,7 +637,7 @@ img {
 }
 
 .projectBox .inside .img-fluid {
-  height: 220px;
+  aspect-ratio: 3/2;
   position: relative;
   overflow: hidden;
   background-color: var(--dark);
@@ -739,8 +739,10 @@ img {
 }
 
 .project-logos img {
-  height: 80px;
-  width: auto;
+    height: 80px;
+    width: auto;
+    aspect-ratio: 3 / 2;
+    object-fit: contain;
 }
 
 /* project grid */

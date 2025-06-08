@@ -5,16 +5,20 @@ import { Link } from 'react-router-dom';
 function LatestProjects() {
     const [projects, setProjects] = useState([]);
 
-    useEffect(() => {
-        axiosInstance.get('/projects')
-            .then(response => {
-                const filteredProjects = response.data.filter(project => project.showOnHomePage);
-                setProjects(filteredProjects);
-            })
-            .catch(error => {
-                console.error('Error fetching projects:', error);
-            });
-    }, []);
+  useEffect(() => {
+    axiosInstance.get('/projects')
+        .then(response => {
+            const filteredProjects = response.data
+                .filter(project => project.showOnHomePage)
+                .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)) // Sort by newest first
+                .slice(0, 6); // Take only the first 6
+
+            setProjects(filteredProjects);
+        })
+        .catch(error => {
+            console.error('Error fetching projects:', error);
+        });
+}, []);
 
     return (
         <div className="w-100 padding project-section">

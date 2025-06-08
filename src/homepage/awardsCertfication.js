@@ -4,33 +4,40 @@ import "swiper/css/bundle";
 import { axiosInstance, IMAGE_URL } from "../utils/axiosInstance";
 
 function AwardsCertification() {
-  useEffect(() => {
-    new Swiper(".certifications-slider", {
-      slidesPerView: 1,
-      spaceBetween: 10,
-      loop: true,
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
-      pagination: {
-        el: ".swiper-pagination",
-        type: "fraction",
-        clickable: true,
-      },
-      breakpoints: {
-        576: {
+  const [certifications, setCertifications] = useState([]);
+ useEffect(() => {
+  if (certifications.length > 0) {
+    // Give React time to render the DOM
+    setTimeout(() => {
+      new Swiper(".certifications-slider", {
+        slidesPerView: 1,
+        spaceBetween: 10,
+        loop: true,
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          type: "fraction",
+          clickable: true,
+        },
+        breakpoints: {
+          576: {
             slidesPerView: 2,
             spaceBetween: 20,
-        },
-        1024: {
+          },
+          1024: {
             slidesPerView: 3,
             spaceBetween: 30,
+          },
         },
-    },
-    });
-  }, []);
-  const [certifications, setCertifications] = useState([]);
+      });
+    }, 0); // or a slight delay like 100ms if needed
+  }
+}, [certifications]);
+
+  
 
   useEffect(() => {
     axiosInstance

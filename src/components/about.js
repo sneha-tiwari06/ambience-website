@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { axiosInstance } from '../utils/axiosInstance';
+import Footer from '../widgets/footer';
 
 function About() {
     const [overviewData, setOverviewData] = useState(null);
@@ -71,6 +72,7 @@ function About() {
                     </div>
                 </div>
             </div>
+            <Footer />
         </>
     );
 }

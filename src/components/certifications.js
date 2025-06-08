@@ -8,6 +8,7 @@ import 'lightgallery/css/lg-zoom.css';
 
 import lgThumbnail from 'lightgallery/plugins/thumbnail';
 import lgZoom from 'lightgallery/plugins/zoom';
+import Footer from "../widgets/footer";
 function Certifications() {
   const [certifications, setCertifications] = useState([]);
 
@@ -83,6 +84,7 @@ function Certifications() {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 }

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { axiosInstance } from '../utils/axiosInstance';
+import Footer from '../widgets/footer';
 
 function ContactUs() {
     const [formData, setFormData] = useState({
@@ -118,6 +119,7 @@ function ContactUs() {
                     </div>
                 </div>
             </div>
+            <Footer />
         </>
     )
 }

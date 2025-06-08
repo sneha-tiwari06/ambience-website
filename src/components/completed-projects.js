@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Swiper from "swiper/bundle";
 import "swiper/css/bundle";
 import { axiosInstance, IMAGE_URL } from "../utils/axiosInstance";
+import Footer from "../widgets/footer";
 
 function CompletedProjects() {
   const [completedProjects, setCompletedProjects] = useState([]);
@@ -17,14 +18,17 @@ function CompletedProjects() {
         setCompletedProjects(filteredProjects);
       })
       .catch((error) => {
-        console.error("There was an error fetching the completed projects!", error);
+        console.error(
+          "There was an error fetching the completed projects!",
+          error
+        );
       });
   }, []);
 
   useEffect(() => {
     new Swiper(".projectWork-slider", {
-      slidesPerView: 3,
-      spaceBetween: 20,
+      slidesPerView: 1,
+      spaceBetween: 10,
       loop: true,
       navigation: {
         nextEl: ".swiper-button-next",
@@ -34,6 +38,16 @@ function CompletedProjects() {
         el: ".swiper-pagination",
         type: "fraction",
         clickable: true,
+      },
+      breakpoints: {
+        576: {
+          slidesPerView: 2,
+          spaceBetween: 10,
+        },
+        1200: {
+          slidesPerView: 3,
+          spaceBetween: 20,
+        },
       },
     });
   }, [completedProjects]);
@@ -77,7 +91,9 @@ function CompletedProjects() {
                               >
                                 {loc}
                                 <br />
-                                <b>{formatNumber(completed.areas[index])} sft</b>
+                                <b>
+                                  {formatNumber(completed.areas[index])} sft
+                                </b>
                               </div>
                             ))}
                           </div>
@@ -100,6 +116,7 @@ function CompletedProjects() {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 }

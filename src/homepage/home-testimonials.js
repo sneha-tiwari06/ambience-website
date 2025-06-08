@@ -5,33 +5,42 @@ import { axiosInstance, IMAGE_URL } from '../utils/axiosInstance';
 import { Link } from 'react-router-dom';
 
 function HomeTestimonials() {
-    useEffect(() => {
-
+      const [testimonials, setTestimonials] = useState([]);
+  useEffect(() => {
+  if (testimonials.length > 0) {
+    const timer = setTimeout(() => {
+      if (document.querySelectorAll('.testim-slider .swiper-slide').length > 0) {
         new Swiper('.testim-slider', {
-            slidesPerView: 1,
-            spaceBetween: 10,
-            loop: true,
-            pagination: {
-                el: ".swiper-pagination",
-                type: "fraction",
+          slidesPerView: 1,
+          spaceBetween: 10,
+          loop: true,
+          pagination: {
+            el: ".swiper-pagination",
+            type: "fraction",
+          },
+          navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+          },
+          breakpoints: {
+            576: {
+              slidesPerView: 2,
+              spaceBetween: 20,
             },
-            navigation: {
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev",
+            1024: {
+              slidesPerView: 2,
+              spaceBetween: 30,
             },
-            breakpoints: {
-                576: {
-                    slidesPerView: 2,
-                    spaceBetween: 20,
-                },
-                1024: {
-                    slidesPerView: 2,
-                    spaceBetween: 30,
-                },
-            },
+          },
         });
-    }, []);
-    const [testimonials, setTestimonials] = useState([]);
+      }
+    }, 100); // You can tweak this timeout if needed
+
+    return () => clearTimeout(timer); // Cleanup
+  }
+}, [testimonials]);
+
+  
 
     useEffect(() => {
         axiosInstance.get('/testimonials')

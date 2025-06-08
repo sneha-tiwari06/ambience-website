@@ -7,8 +7,8 @@ import 'lightgallery/css/lg-thumbnail.css';
 import 'lightgallery/css/lg-zoom.css';
 
 import lgThumbnail from 'lightgallery/plugins/thumbnail';
-import lgZoom from 'lightgallery/plugins/zoom';
 import { axiosInstance, IMAGE_URL } from '../utils/axiosInstance';
+import Footer from '../widgets/footer';
 
 function GalleryDetails() {
     const { id } = useParams();
@@ -81,7 +81,7 @@ function GalleryDetails() {
                         )}
                     </div>
                     <div className="projectContainer">
-                        <LightGallery plugins={[lgThumbnail, lgZoom]} selector=".projectBox a" >
+                        <LightGallery plugins={[lgThumbnail]} selector=".projectBox a" download={false} >
                             {images.length > 0 ? (
 
                                 <div className="row g-4">
@@ -111,6 +111,7 @@ function GalleryDetails() {
                     </div>
                 </div>
             </div>
+            <Footer />
         </>
     );
 }

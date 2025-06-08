@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Modal } from 'bootstrap';
 import { Link } from 'react-router-dom';
 import { axiosInstance } from '../utils/axiosInstance';
+import Footer from '../widgets/footer';
 
 function Careers() {
   const [modalData, setModalData] = useState({
@@ -333,6 +334,7 @@ function Careers() {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 }
