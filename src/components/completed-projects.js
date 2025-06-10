@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import Swiper from "swiper/bundle";
 import "swiper/css/bundle";
 import { axiosInstance, IMAGE_URL } from "../utils/axiosInstance";
-import Footer from "../widgets/footer";
 
 function CompletedProjects() {
   const [completedProjects, setCompletedProjects] = useState([]);
@@ -116,7 +115,6 @@ function CompletedProjects() {
           </div>
         </div>
       </div>
-      <Footer />
     </>
   );
 }
