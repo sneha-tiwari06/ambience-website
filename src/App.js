@@ -12,49 +12,49 @@ import GalleryDetails from "./components/gallery-details";
 import { useEffect } from "react";
 
 function App() {
-  useEffect(() => {
-    // Disable Right Click
-    const handleContextMenu = (e) => {
-      e.preventDefault();
-    };
+  // useEffect(() => {
+  //   // Disable Right Click
+  //   const handleContextMenu = (e) => {
+  //     e.preventDefault();
+  //   };
 
-    // Disable all keys including DevTools, view source, etc.
-    const handleKeyDown = (e) => {
-      const forbiddenKeys = [
-        "F12", // DevTools
-        "I",
-        "J",
-        "C",
-        "U",
-        "S", // DevTools, Source, Save
-      ];
+  //   // Disable all keys including DevTools, view source, etc.
+  //   const handleKeyDown = (e) => {
+  //     const forbiddenKeys = [
+  //       "F12", // DevTools
+  //       "I",
+  //       "J",
+  //       "C",
+  //       "U",
+  //       "S", // DevTools, Source, Save
+  //     ];
 
-      // Block Ctrl+Key and Ctrl+Shift+Key combinations
-      if (
-        e.ctrlKey ||
-        e.metaKey ||
-        e.altKey ||
-        e.shiftKey ||
-        forbiddenKeys.includes(e.key.toUpperCase())
-      ) {
-        e.preventDefault();
-        e.stopPropagation();
-        return false;
-      }
+  //     // Block Ctrl+Key and Ctrl+Shift+Key combinations
+  //     if (
+  //       e.ctrlKey ||
+  //       e.metaKey ||
+  //       e.altKey ||
+  //       e.shiftKey ||
+  //       forbiddenKeys.includes(e.key.toUpperCase())
+  //     ) {
+  //       e.preventDefault();
+  //       e.stopPropagation();
+  //       return false;
+  //     }
 
-      // Block all keys
-      e.preventDefault();
-      return false;
-    };
+  //     // Block all keys
+  //     e.preventDefault();
+  //     return false;
+  //   };
 
-    document.addEventListener("contextmenu", handleContextMenu);
-    window.addEventListener("keydown", handleKeyDown, true);
+  //   document.addEventListener("contextmenu", handleContextMenu);
+  //   window.addEventListener("keydown", handleKeyDown, true);
 
-    return () => {
-      document.removeEventListener("contextmenu", handleContextMenu);
-      window.removeEventListener("keydown", handleKeyDown, true);
-    };
-  }, []);
+  //   return () => {
+  //     document.removeEventListener("contextmenu", handleContextMenu);
+  //     window.removeEventListener("keydown", handleKeyDown, true);
+  //   };
+  // }, []);
   return (
     <div className="App">
       <Router basename="/ambience-react">
