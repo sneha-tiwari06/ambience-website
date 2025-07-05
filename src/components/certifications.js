@@ -1,11 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import { axiosInstance, IMAGE_URL } from "../utils/axiosInstance";
 import LightGallery from "lightgallery/react";
-
 import "lightgallery/css/lightgallery.css";
 import "lightgallery/css/lg-thumbnail.css";
 import "lightgallery/css/lg-zoom.css";
-
 import lgThumbnail from "lightgallery/plugins/thumbnail";
 import Footer from "../widgets/footer";
 import logo from "./logo.png"; // ✅ Import logo properly
@@ -59,7 +57,6 @@ function Certifications() {
     };
   }, []);
 
-  // Cleanup function for gallery close
   const handleAfterClose = () => {
     if (logoRef.current) {
       logoRef.current.remove();

@@ -33,7 +33,7 @@ function GalleryDetails() {
           ?.setAttribute(
             "content",
             fetchedMeta.metaDescription ||
-              "Explore our stunning project gallery at Ambience."
+            "Explore our stunning project gallery at Ambience."
           );
         document
           .querySelector('meta[name="keywords"]')
@@ -49,11 +49,17 @@ function GalleryDetails() {
     fetchMetaDetails();
   }, [id]);
 
+  // ...existing code...
   useEffect(() => {
     const fetchGalleryDetails = async () => {
       try {
         const response = await axiosInstance.get(`/gallery-image/${id}`);
-        setImages(response.data);
+        // Sort images by priority (ascending)
+        const sortedImages = response.data.sort(
+          (a, b) => a.priority - b.priority
+        );
+        setImages(sortedImages);
+        console.log("Fetched images:", sortedImages);
       } catch (error) {
         console.error("Error fetching gallery details:", error);
       }
@@ -61,6 +67,7 @@ function GalleryDetails() {
 
     fetchGalleryDetails();
   }, [id]);
+  // ...existing code...
 
   const projectName = metaDetails ? metaDetails.projectName : "";
   const logoClass = "lg-top-left-logo";
@@ -131,8 +138,12 @@ function GalleryDetails() {
         <div className="container-lg">
           <div className="heading">
             {projectName && (
-              <h3 className="text-center mb-0">{projectName || "Gallery"}</h3>
+              <h3 className="mb-4">{projectName || "Gallery"}</h3>
             )}
+            {images.length > 0 && (
+              <p className="mb-0">{images[0].altText}</p>
+            )}
+
           </div>
           <div className="projectContainer">
             <LightGallery
@@ -153,14 +164,15 @@ function GalleryDetails() {
                       <a
                         href={`${IMAGE_URL}/${image.originalImagePath}`}
                         data-src={`${IMAGE_URL}/${image.originalImagePath}`}
-                        data-sub-html={`${image.altText || "Gallery Image"}`}
+                        data-sub-html={`${image.caption || "Gallery Image"}`}
                       >
-                        <div className="img-fluid">
+                        <div className="img-fluid position-relative">
                           <img
                             src={`${IMAGE_URL}/${image.thumbnailImagePath}`}
-                            alt={image.altText || "Gallery Image"}
+                            alt={image.caption || "Gallery Image"}
                             className="img-thumbnail"
                           />
+                          <span className="caption badge bg-dark text-white position-absolute start-0 bottom-0 ms-2 mb-2 rounded-0">{image.caption || "Gallery"}</span>
                         </div>
                       </a>
                     </div>
