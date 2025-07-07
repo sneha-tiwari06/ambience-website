@@ -109,6 +109,7 @@ function Testimonials() {
                             testimonial.imageAltText || "Testimonial"
                           }
                         > */}
+                        <div className="inside">
                           <div className="img-fluid">
                             <img
                               src={`${IMAGE_URL}/${testimonial.logo}`}
@@ -139,6 +140,7 @@ function Testimonials() {
                             aria-hidden="true"
                           ></i>
                         {/* </a> */}
+                        </div>
                       </div>
                     )
                 )}

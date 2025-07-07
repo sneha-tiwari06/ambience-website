@@ -107,6 +107,8 @@ function Home() {
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         autoplay={{ delay: 5000 }}
+        effect={'fade'}
+        speed= {2000}
         navigation
         pagination={{ clickable: true }}
         loop

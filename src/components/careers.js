@@ -198,7 +198,7 @@ function Careers() {
                       <h5 className="mb-0 job-role">{career.role}</h5>
                     </div>
                     <div className="card-body px-0">
-                      <h6 className="font-weight-bold">Role Description</h6>
+                      <h6 className="fw-bold">Role Description</h6>
                       <p className="mb-0">{career.description}</p>
                     </div>
                     <ul className="list-group list-group-flush">

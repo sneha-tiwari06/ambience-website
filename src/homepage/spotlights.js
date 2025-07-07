@@ -40,7 +40,7 @@ function Spotlight() {
             {[spotlightData.spotlightPointer1, spotlightData.spotlightPointer2, spotlightData.spotlightPointer3].map((info, index) => (
               <div key={index} className="col-lg-3 col-sm-6 genericBox">
                 <div className="inside">
-                  <p className="mb-0 font-weight-bold">{info}</p>
+                  <p className="mb-0 fw-bold">{info}</p>
                 </div>
               </div>
             ))}

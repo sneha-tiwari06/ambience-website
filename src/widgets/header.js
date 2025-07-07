@@ -8,6 +8,7 @@ function Header() {
     const toggleMenu = () => {
         setMenuOpen(prev => !prev);
     };
+
     useEffect(() => {
         const body = document.body;
         const header = document.querySelector('.header');
@@ -25,6 +26,22 @@ function Header() {
             header?.classList.remove('notfixed');
         };
     }, [menuOpen]);
+
+    // Add fixed class on scroll
+    useEffect(() => {
+        const header = document.querySelector('.header');
+        const handleScroll = () => {
+            if (window.scrollY > 0) {
+                header?.classList.add('fixed');
+            } else {
+                header?.classList.remove('fixed');
+            }
+        };
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
 
     return (
         <>

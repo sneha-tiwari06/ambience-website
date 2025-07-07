@@ -35,6 +35,7 @@ function About() {
                 <div className="container-lg">
                     <div className="heading">
                         <span className="h6 text-brown">About Us</span>
+                        <h3 className="mb-0">Delivering inspired spaces</h3>
                     </div>
                     <div className="row">
                         <div className="col-md-12 overview-text">

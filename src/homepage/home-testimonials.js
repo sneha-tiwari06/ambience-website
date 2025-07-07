@@ -45,7 +45,7 @@ function HomeTestimonials() {
     useEffect(() => {
         axiosInstance.get('/testimonials')
             .then(response => {
-                setTestimonials(response.data);
+                setTestimonials(response.data.slice(0, 5));
             })
             .catch(error => {
                 console.error('There was an error fetching the testimonials!', error);
