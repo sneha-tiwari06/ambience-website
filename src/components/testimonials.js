@@ -101,14 +101,14 @@ function Testimonials() {
                   (testimonial) =>
                     testimonial.isActive && (
                       <div key={testimonial._id} className="col-sm-6 testimBox">
-                        <a
+                        {/* <a
                           href={`${IMAGE_URL}/${testimonial.image}`}
                           data-src={`${IMAGE_URL}/${testimonial.image}`}
                           className="inside"
                           data-sub-html={
                             testimonial.imageAltText || "Testimonial"
                           }
-                        >
+                        > */}
                           <div className="img-fluid">
                             <img
                               src={`${IMAGE_URL}/${testimonial.logo}`}
@@ -123,13 +123,13 @@ function Testimonials() {
                             }}
                           ></p>
 
-                          <h6 className="testim-name">
+                          <h6 className="testim-name text-center">
                             {testimonial.logoAltText || "Testimonial"}
                             <small></small>
                           </h6>
-                          <div className="readmore">
+                          {/* <div className="readmore">
                             <span className="button mx-auto">View</span>
-                          </div>
+                          </div> */}
                           <i
                             className="fa fa-quote-left"
                             aria-hidden="true"
@@ -138,7 +138,7 @@ function Testimonials() {
                             className="fa fa-quote-right"
                             aria-hidden="true"
                           ></i>
-                        </a>
+                        {/* </a> */}
                       </div>
                     )
                 )}

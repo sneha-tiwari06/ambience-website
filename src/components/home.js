@@ -32,10 +32,10 @@ function Home() {
 
         const pointerData = pointerRes.data[0];
         setPointers([
-          pointerData.pointer1,
-          pointerData.pointer2,
-          pointerData.pointer3,
-          pointerData.pointer4,
+          { label: pointerData.pointer1, detail: pointerData.pointer1Detail },
+          { label: pointerData.pointer2, detail: pointerData.pointer2Detail },
+          { label: pointerData.pointer3, detail: pointerData.pointer3Detail },
+          { label: pointerData.pointer4, detail: pointerData.pointer4Detail },
         ]);
 
         const formattedBanners = bannerRes.data.map((banner) => ({
@@ -65,11 +65,29 @@ function Home() {
     return Array.from(paragraphs)
       .slice(0, 2)
       .map((para, index) => (
-        <div className="col-md-6 col-sm-6 overview-text text-justify" key={index}>
-          <p className="mb-0" dangerouslySetInnerHTML={{ __html: para.outerHTML }} />
+        <div
+          className="col-md-6 col-sm-6 overview-text text-justify"
+          key={index}
+        >
+          <p
+            className="mb-0"
+            dangerouslySetInnerHTML={{ __html: para.outerHTML }}
+          />
         </div>
       ));
   };
+
+  useEffect(() => {
+    // Initialize Bootstrap popovers after pointers are rendered
+    const popoverTriggerList = [].slice.call(
+      document.querySelectorAll('[data-bs-toggle="popover"]')
+    );
+    popoverTriggerList.forEach(function (popoverTriggerEl) {
+      if (window.bootstrap && window.bootstrap.Popover) {
+        new window.bootstrap.Popover(popoverTriggerEl);
+      }
+    });
+  }, [pointers]);
 
   if (loading) {
     return (
@@ -97,8 +115,14 @@ function Home() {
         {banners.map((banner) => (
           <SwiperSlide key={banner._id} className="h-auto">
             <picture>
-              <source media="(max-width: 576px)" srcSet={banner.fullMobileImageUrl} />
-              <source media="(max-width: 768px)" srcSet={banner.fullTabImageUrl} />
+              <source
+                media="(max-width: 576px)"
+                srcSet={banner.fullMobileImageUrl}
+              />
+              <source
+                media="(max-width: 768px)"
+                srcSet={banner.fullTabImageUrl}
+              />
               <img
                 src={banner.fullImageUrl}
                 alt={banner.altText || "Banner"}
@@ -128,7 +152,23 @@ function Home() {
                 }`}
               >
                 <div className="inside">
-                  <p className="mb-0 text-uppercase">{pointer}</p>
+                  <span
+                    className="d-inline-block"
+                    tabIndex="0"
+                    data-bs-toggle="popover"
+                    data-bs-trigger="hover focus"
+                    data-bs-content={pointer.detail}
+                    data-bs-html="true"
+                    data-bs-placement="top"
+                  >
+                    <p className="mb-0 text-uppercase text-white btn btn-link p-0 m-0 border-0 text-decoration-none">
+                      {index === 0 ? (
+                        <strong>{pointer.label}</strong>
+                      ) : (
+                        pointer.label
+                      )}
+                    </p>
+                  </span>
                 </div>
               </div>
             ))}
