@@ -10,7 +10,7 @@ function LatestProjects() {
         .then(response => {
             const filteredProjects = response.data
                 .filter(project => project.showOnHomePage)
-                .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)) // Sort by newest first
+                 .sort((a, b) => a.projectName.localeCompare(b.projectName)) 
                 .slice(0, 6); // Take only the first 6
 
             setProjects(filteredProjects);
