@@ -124,10 +124,10 @@ function Testimonials() {
                             }}
                           ></p>
 
-                          <h6 className="testim-name text-center">
+                          {/* <h6 className="testim-name text-center">
                             {testimonial.logoAltText || "Testimonial"}
                             <small></small>
-                          </h6>
+                          </h6> */}
                           {/* <div className="readmore">
                             <span className="button mx-auto">View</span>
                           </div> */}

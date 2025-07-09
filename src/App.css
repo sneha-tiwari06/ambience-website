@@ -1622,6 +1622,16 @@ textarea.form-control {
   -webkit-transition-timing-function: linear !important;
   transition-timing-function: linear !important;
 }
+
+.galleryBox .img-fluid::before{
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.25);
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.45));
+  z-index: 2;
+  pointer-events: none;
+}
 .galleryBox .img-thumbnail{
   aspect-ratio: 4/3;
   object-fit: cover;
@@ -1629,4 +1639,7 @@ textarea.form-control {
   border-radius: 0;
   border: 0;
 
+}
+.galleryBox .caption{
+  z-index: 3;
 }

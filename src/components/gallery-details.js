@@ -172,7 +172,7 @@ function GalleryDetails() {
                             alt={image.caption || "Gallery Image"}
                             className="img-thumbnail"
                           />
-                          <span className="caption badge bg-dark text-white position-absolute start-0 bottom-0 ms-2 mb-2 rounded-0">{image.caption || "Gallery"}</span>
+                          <small className="caption text-white position-absolute start-0 bottom-0 ms-2 mb-2 rounded-0">{image.caption || "Gallery"}</small>
                         </div>
                       </a>
                     </div>
