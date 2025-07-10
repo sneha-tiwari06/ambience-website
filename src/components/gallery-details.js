@@ -33,7 +33,7 @@ function GalleryDetails() {
           ?.setAttribute(
             "content",
             fetchedMeta.metaDescription ||
-            "Explore our stunning project gallery at Ambience."
+              "Explore our stunning project gallery at Ambience."
           );
         document
           .querySelector('meta[name="keywords"]')
@@ -56,10 +56,12 @@ function GalleryDetails() {
         const response = await axiosInstance.get(`/gallery-image/${id}`);
         // Sort images by priority (ascending)
         const sortedImages = response.data.sort((a, b) => {
-  const aPriority = typeof a.priority === "number" ? a.priority : Infinity;
-  const bPriority = typeof b.priority === "number" ? b.priority : Infinity;
-  return aPriority - bPriority;
-});
+          const aPriority =
+            typeof a.priority === "number" ? a.priority : Infinity;
+          const bPriority =
+            typeof b.priority === "number" ? b.priority : Infinity;
+          return aPriority - bPriority;
+        });
 
         setImages(sortedImages);
         console.log("Fetched images:", sortedImages);
@@ -143,16 +145,11 @@ function GalleryDetails() {
             {projectName && (
               <h3 className="mb-4">{projectName || "Gallery"}</h3>
             )}
-            {images.length > 0 && (
-            <p className="mb-0">
-            {
-            [...images]
-            .sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt))[0]
-            .altText
-              }
-  </p>
-)}
-
+        
+            {projectName && (
+              <p className="mb-0">{metaDetails?.galleryOverview || " "}</p>
+            )}
+       
           </div>
           <div className="projectContainer">
             <LightGallery
@@ -181,7 +178,9 @@ function GalleryDetails() {
                             alt={image.caption || "Gallery Image"}
                             className="img-thumbnail"
                           />
-                          <small className="caption text-white position-absolute start-0 bottom-0 ms-2 mb-2 rounded-0">{image.caption || "Gallery"}</small>
+                          <small className="caption text-white position-absolute start-0 bottom-0 ms-2 mb-2 rounded-0">
+                            {image.caption || "Gallery"}
+                          </small>
                         </div>
                       </a>
                     </div>
