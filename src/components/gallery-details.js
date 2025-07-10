@@ -55,9 +55,12 @@ function GalleryDetails() {
       try {
         const response = await axiosInstance.get(`/gallery-image/${id}`);
         // Sort images by priority (ascending)
-        const sortedImages = response.data.sort(
-          (a, b) => a.priority - b.priority
-        );
+        const sortedImages = response.data.sort((a, b) => {
+  const aPriority = typeof a.priority === "number" ? a.priority : Infinity;
+  const bPriority = typeof b.priority === "number" ? b.priority : Infinity;
+  return aPriority - bPriority;
+});
+
         setImages(sortedImages);
         console.log("Fetched images:", sortedImages);
       } catch (error) {
