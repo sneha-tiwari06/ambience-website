@@ -141,8 +141,14 @@ function GalleryDetails() {
               <h3 className="mb-4">{projectName || "Gallery"}</h3>
             )}
             {images.length > 0 && (
-              <p className="mb-0">{images[0].altText}</p>
-            )}
+            <p className="mb-0">
+            {
+            [...images]
+            .sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt))[0]
+            .altText
+              }
+  </p>
+)}
 
           </div>
           <div className="projectContainer">
