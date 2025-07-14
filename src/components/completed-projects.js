@@ -65,7 +65,7 @@ function CompletedProjects() {
 
       <div className="w-100 padding project-section">
         <div className="container-lg">
-          <div className="heading">
+          <div className="heading px-lg-3">
             <h3 className="mb-0">Completed Projects</h3>
           </div>
           <div className="projectContainer">
