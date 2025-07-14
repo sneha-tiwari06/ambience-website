@@ -124,7 +124,7 @@ function OngoingProjects() {
                                 .join(", ")}{" "}
                             sqft
                           </li>
-                          <li>GC Works</li>
+                          <li>{project.workBy}</li>
                         </ul>
                       </div>
                     </div>
