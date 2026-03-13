@@ -58,6 +58,7 @@ function Footer() {
                                 <h6 className='footer-title'>Contact Us (NCR)</h6>
                                 <ul className="list-inline">
                                     <li><a href="https://maps.app.goo.gl/hLLcAC5gT8SNS6My8" target="_blank"><i className="fa fa-map-marker-alt"></i> <span>441-P, Pace City-II, Sector - 37, Gurgaon</span></a></li>
+                                    <li><a href="https://maps.app.goo.gl/RAMQbLK3KjdPb8Kv8"><i class="fa fa-map-marker-alt" aria-hidden="true"></i> <span>801, Vipul Square, Sushant Lok I, Sector 43, Gurgaon - 122009</span></a></li>
                                     <li><a href="tel:+91 124 4967777"><i className="fa fa-phone"></i> <span>+91 124 4967777</span></a></li>
                                     <li><a href="mailto:mail@ambience.co.in"><i className="fa fa-envelope"></i> <span>mail@ambience.co.in</span></a></li>
                                 </ul>

@@ -62,9 +62,10 @@ function ContactUs() {
                             <div className="inner">
                                 <h5>NCR</h5>
                                 <ul className="list-inline contactList">
-                                    <li><a href="#"><i className="fa fa-map-marker-alt"></i> <span>441-P, Pace City-II, Sector - 37, Gurgaon</span></a></li>
-                                    <li><a href="#"><i className="fa fa-phone"></i> <span>+91 124 4967777</span></a></li>
-                                    <li><a href="#"><i className="fa fa-envelope"></i> <span>mail@ambience.co.in</span></a></li>
+                                    <li><a href="https://maps.app.goo.gl/hLLcAC5gT8SNS6My8" target="_blank"><i className="fa fa-map-marker-alt"></i> <span>441-P, Pace City-II, Sector - 37, Gurgaon</span></a></li>
+                                    <li><a href="https://maps.app.goo.gl/RAMQbLK3KjdPb8Kv8"><i class="fa fa-map-marker-alt" aria-hidden="true"></i> <span>801, Vipul Square, Sushant Lok I, Sector 43, Gurgaon - 122009</span></a></li>
+                                    <li><a href="tel:+91 124 4967777"><i className="fa fa-phone"></i> <span>+91 124 4967777</span></a></li>
+                                    <li><a href="mailto:mail@ambience.co.in"><i className="fa fa-envelope"></i> <span>mail@ambience.co.in</span></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -77,9 +78,9 @@ function ContactUs() {
                             <div className="inner">
                                 <h5>Bangalore</h5>
                                 <ul className="list-inline contactList">
-                                    <li><a href="#"><i className="fa fa-map-marker-alt"></i> <span>2nd Floor ,Times Square, No.319/C, 2nd Main, Kasturi Nagar (East of NGEF), Bangalore – 560043.</span></a></li>
-                                    <li><a href="#"><i className="fa fa-phone"></i> <span>+91 80 42192947</span></a></li>
-                                    <li><a href="#"><i className="fa fa-envelope"></i> <span>mail@ambience.co.in</span></a></li>
+                                    <li><a href="https://maps.app.goo.gl/apy7P7pbjqnn81DNA" target="_blank"><i className="fa fa-map-marker-alt"></i> <span>2nd Floor ,Times Square, No.319/C, 2nd Main, Kasturi Nagar (East of NGEF), Bangalore – 560043.</span></a></li>
+                                    <li><a href="tel:+918042192947"><i className="fa fa-phone"></i> <span>+91 80 42192947</span></a></li>
+                                    <li><a href="mailto:mail@ambience.co.in"><i className="fa fa-envelope"></i> <span>mail@ambience.co.in</span></a></li>
                                 </ul>
                             </div>
                         </div>
